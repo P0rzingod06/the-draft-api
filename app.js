@@ -2,7 +2,7 @@ var express = require('express');
 
 var app = express();
 
-var port = process.env.PORT || 2000;
+var port = process.env.PORT || 6969;
 
 app.get('/', function(req,res) {
 	res.send('Welcome to my API');
