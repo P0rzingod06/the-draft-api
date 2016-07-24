@@ -8,7 +8,8 @@ var managerRouter = express.Router();
 
 managerRouter.route('/Managers')
 	.get(function(req,res) {
-		var responseJson = {hello: 'B00bs'};
+		var responseJson = [{id:1,firstName: 'Mike',lastName:'Gassert',logoUrl:'N/A',},
+		{id:1,firstName: 'Dale',lastName:'Race',logoUrl:'N/A',}];
 		
 		res.json(responseJson);
 	})
