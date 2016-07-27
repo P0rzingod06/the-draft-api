@@ -6,4 +6,4 @@ var managerSchema = new Schema({
     lastName: String
 });
 
-module.exports = mongoose.model('manager', managerSchema, 'managers');
+module.exports = mongoose.model('Manager', managerSchema);
