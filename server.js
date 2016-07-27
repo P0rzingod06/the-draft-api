@@ -9,6 +9,7 @@ const app = express();
 
 mongoose.connect('mongodb://localhost:27017/theDraft');
 
+
 // get all data/stuff of the body (POST) parameters
 app.use(bodyParser.json());
 // parse application/vnd.api+json as json
