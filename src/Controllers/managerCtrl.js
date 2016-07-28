@@ -1,8 +1,15 @@
 var Manager = require('./../Models/managerModel');
 
-exports.list = function (req, res) {
+exports.find = function (req, res) {
     query = req.query;
     Manager.list(query).then(function (result) {
+        res.json(result);
+    });
+}
+
+exports.findById = function (req, res) {
+    id = req.params.id
+    Manager.findById(id).then(function (result) {
         res.json(result);
     });
 }

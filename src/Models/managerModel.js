@@ -6,10 +6,16 @@ var managerSchema = new Schema({
     lastName: String
 });
 
+//TODO: unique constraint for firstName and lastName
+
 managerSchema.methods = {
 
     list: function (query) {
         return this.find(query).populate('manager').exec();
+    },
+
+    findById: function (id) {
+    	return this.findOne(id).populate('manager').exec();
     },
 
     create: function (manager) {
