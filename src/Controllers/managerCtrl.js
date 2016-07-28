@@ -1,20 +1,20 @@
 var Manager = require('./../Models/managerModel');
 
 exports.list = function (req, res) {
-    console.log(Manager.find())
-    Manager.find({}, function (err, Manager) {
-        if (err) return console.error(err);
-        console.log(Manager);
-        res.json(Manager);
-    })
+    query = req.query;
+    Manager.list(query).then(function (result) {
+        res.json(result);
+    });
 }
 
 exports.create = function (req, res) {
-    try {
-        var newManager = new Manager(req.body);
-        newManager.save();
+    var newManager = new Manager(req.body);
+    Manager.create(newManager).then(function (newManager) {
         res.json(newManager);
-    } catch (err) {
-        res.json(err);
-    }
+    })
+}
+
+function oneError() {
+    //TODO: Error Handling
+    console.log('THIS IS OUR ERROR HANDLER COME BACK' + ' Boobs lol');
 }

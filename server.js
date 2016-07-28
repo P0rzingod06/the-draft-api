@@ -17,9 +17,8 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(methodOverride('X-HTTP-Method-Override'));
+app.use(methodOverride('X-HTTP-Method-Override'));
 app.use('/node_modules', express.static(__dirname +'/node_modules'));
-
 
 
 require(__dirname + '/src/Routes/managerRoutes')(app);
