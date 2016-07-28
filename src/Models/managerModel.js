@@ -10,17 +10,20 @@ var managerSchema = new Schema({
 
 managerSchema.methods = {
 
+    create: function (manager) {
+    	return manager.save();
+    }
+};
+
+managerSchema.statics = {
+
     list: function (query) {
         return this.find(query).populate('manager').exec();
     },
 
-    findById: function (id) {
+    listById: function (id) {
     	return this.findOne(id).populate('manager').exec();
-    },
-
-    create: function (manager) {
-    	return manager.save();
     }
-}
+};
 
 module.exports = mongoose.model('Manager', managerSchema);
