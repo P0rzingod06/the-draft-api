@@ -3,8 +3,7 @@ var Schema = mongoose.Schema;
 
 var managerSchema = new Schema({
     firstName: String,
-    lastName: String,
-    logoUrl: String
+    lastName: String
 });
 
 //TODO: unique constraint for firstName and lastName
@@ -14,11 +13,6 @@ managerSchema.methods = {
     create: function () {
         return this.save();
     },
-
-    remove: function() {
-        console.log(here);
-        return this.remove();
-    }
 
     // update: function (updatedManager) {
     // 	console.log(updatedManager)
@@ -35,16 +29,7 @@ managerSchema.statics = {
     },
 
     listById: function (id) {
-        return this.findById(id).populate('manager').exec();
-    },
-
-    removeById: function (id) {
-        return this.listById(id).then(function(manager){
-            console.log(manager);
-            var manager = new Manager(manager);
-            console.log(typeof manager)
-            return manager.remove();
-        })
+        return this.findOne(id).populate('manager').exec();
     }
 }
 
