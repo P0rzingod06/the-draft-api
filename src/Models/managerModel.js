@@ -13,38 +13,27 @@ managerSchema.methods = {
 
     create: function () {
         return this.save();
-    },
-
-    remove: function() {
-        console.log(here);
-        return this.remove();
     }
-
-    // update: function (updatedManager) {
-    // 	console.log(updatedManager)
-    //     return updatedManager.update({firstName:'poop'}, function (err, raw) {
-    //     	if(err)console.log(err);
-    //         console.log(raw);
-    //     }).exec();
-    // }
 }
 
 managerSchema.statics = {
     list: function (query) {
-        return this.find(query).populate('manager').exec();
+        return this.find(query).exec();
     },
 
     listById: function (id) {
-        return this.findById(id).populate('manager').exec();
+        return this.findById(id, function (err, doc) {
+            if(err) return err //not handling error right
+            return doc  
+        })
     },
 
-    removeById: function (id) {
-        return this.listById(id).then(function(manager){
-            console.log(manager);
-            var manager = new Manager(manager);
-            console.log(typeof manager)
-            return manager.remove();
-        })
+    updateById: function (updatedManager) {
+        return this.findByIdAndUpdate(updatedManager.id, updatedManager).exec();
+    },
+
+    findByIdAndRemove: function (removedManager) {
+        return this.findOneAndRemove(removedManager).exec();
     }
 }
 
