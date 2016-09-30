@@ -42,6 +42,7 @@ app.use('/node_modules', express.static(__dirname +'/node_modules'));
 
 
 require(__dirname + '/src/Routes/managerRoutes')(app);
+require(__dirname + '/src/Routes/playerRoutes')(app);
 
 
 app.listen(port);
