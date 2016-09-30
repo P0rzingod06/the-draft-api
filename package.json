@@ -1,16 +1,22 @@
 {
-  "name": "apitemplate",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "name": "the-draft-api",
+  "author": "the-squad",
+  "version": "0.0.1",
   "dependencies": {
-    "express": "^4.12.4",
-    "gulp": "^3.9.1"
+    "async": "^1.5.2",
+    "bluebird": "^3.4.1",
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "glob": "^7.0.5",
+    "gulp": "^3.8.11",
+    "gulp-nodemon": "^1.0.5",
+    "method-override": "~2.0.2",
+    "mongoose": "^4.1.2",
+    "request": "^2.69.0",
+    "font-awesome" : "4.4.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "gulp-env": "^0.2.0",
+    "jshint-stylish": "^2.0.1"
+  }
 }
