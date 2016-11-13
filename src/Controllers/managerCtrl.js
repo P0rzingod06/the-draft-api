@@ -16,7 +16,6 @@ exports.listById = function (req, res) {
 
 exports.create = function (req, res) {
     var newManager = new Manager(req.body);
-    console.log(req.body);
     newManager.create().then(function (newManager) {
         res.json(newManager);
     });
@@ -24,9 +23,7 @@ exports.create = function (req, res) {
 
 exports.remove = function(req, res) {
     var poorManager = new Manager(req.body);
-    console.log('calling findByIdAndRemove')
     Manager.findByIdAndRemove(poorManager).then(function (removedManager) {
-        console.log('removedManager',removedManager)
         res.json(removedManager);
     })
 }

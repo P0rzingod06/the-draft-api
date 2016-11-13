@@ -7,8 +7,7 @@ const  methodOverride = require('method-override');
 const port = process.env.PORT || 8080;
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/theDraft');
-
+mongoose.connect('mongodb://Admin:Admin@ds151917.mlab.com:51917/heroku_x8xpmf33');
 
 // get all data/stuff of the body (POST) parameters
 app.use(bodyParser.json());
