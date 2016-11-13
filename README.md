@@ -9,3 +9,5 @@ To run server:
 1. Make sure you have NPM and Gulp installed globally
 2. ```npm install```
 3. ````gulp````
+
+Deployed via Heroku - https://the-draft-api.herokuapp.com/api/managers  - index isn't mapped to anything currently
