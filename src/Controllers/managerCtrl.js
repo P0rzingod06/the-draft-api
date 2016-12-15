@@ -21,18 +21,16 @@ exports.create = function (req, res) {
     });
 }
 
-exports.remove = function(req, res) {
-    var poorManager = new Manager(req.body);
-    Manager.findByIdAndRemove(poorManager).then(function (removedManager) {
-        res.json(removedManager);
-    })
-}
-
 exports.update = function (req,res) {
-	var updatedManager = new Manager(req.body);
-	Manager.updateById(updatedManager).then(function (updatedManager) {
+	Manager.updateById(req.body).then(function (updatedManager) {
 		res.json(updatedManager);
 	});
+}
+
+exports.remove = function(req, res) {
+    Manager.removeById(req.params.id).then(function (removedManager) {
+        res.json(removedManager);
+    })
 }
 
 function oneError() {

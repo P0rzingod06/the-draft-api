@@ -24,16 +24,16 @@ managerSchema.statics = {
     listById: function (id) {
         return this.findById(id, function (err, doc) {
             if(err) return err //not handling error right
-            return doc  
+            return doc
         })
     },
 
     updateById: function (updatedManager) {
-        return this.findByIdAndUpdate(updatedManager.id, updatedManager).exec();
+        return this.findByIdAndUpdate(updatedManager, updatedManager).exec();
     },
 
-    findByIdAndRemove: function (removedManager) {
-        return this.findOneAndRemove(removedManager).exec();
+    removeById: function (id) {
+        return this.findByIdAndRemove(id).exec();
     }
 }
 
